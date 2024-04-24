@@ -13,7 +13,19 @@ dotnet run
 ```
 
 ## Importación implícita de namespaces
+
 En el `*.csproj` habilitar o desactivar la importación implícita de directivas using globales.
+
 ```
 <ImplicitUsings>enable</ImplicitUsings>
+```
+
+## Importación de datos
+
+Para añadir data directamente al proyecto, se modifica el archivo `*.csproj`.
+
+```
+  <ItemGroup>
+    <Content Include="data/books.json" />
+  </ItemGroup>
 ```
