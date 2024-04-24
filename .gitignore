@@ -403,3 +403,12 @@ FodyWeavers.xsd
 
 obj/Debug/net8.0/
 obj/Debug/net8.0/*
+obj/Debug/net8.0/apphost.exe
+obj/Debug/net8.0/linq-practice.AssemblyInfo.cs
+obj/Debug/net8.0/linq-practice.AssemblyInfoInputs.cache
+obj/Debug/net8.0/linq-practice.csproj.CoreCompileInputs.cache
+obj/Debug/net8.0/linq-practice.csproj.FileListAbsolute.txt
+obj/Debug/net8.0/linq-practice.dll
+obj/Debug/net8.0/linq-practice.pdb
+obj/Debug/net8.0/ref/linq-practice.dll
+obj/Debug/net8.0/refint/linq-practice.dll
