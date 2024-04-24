@@ -1,5 +1,5 @@
 ﻿var linqData = new LinqQuery();
-var books = linqData.AllCollection();
+var books = linqData.getAllBooks();
 
 // *Get All Books
 // linqData.printValues(books);

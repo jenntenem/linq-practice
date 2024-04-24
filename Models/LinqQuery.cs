@@ -2,10 +2,12 @@ using System.Text.Json;
 
 class LinqQuery
 {
-  public List<Book> booksCollection = new List<Book>();
+  private readonly List<Book> _booksCollection;
+  private const string FILE_PATH = "data/books.json";
 
   public LinqQuery()
   {
+    _booksCollection = new List<Book>();
     /*
     Using Newtonsoft.Json - the most popular JSON library
     string json = JsonConvert.SerializeObject(student);
@@ -20,36 +22,41 @@ class LinqQuery
     var  obj = NetJSON.Deserialize<Student>(json);
     */
 
-    using (StreamReader reader = new StreamReader("data/books.json"))
+    if (File.Exists(FILE_PATH))
     {
-      string dataJson = reader.ReadToEnd();
-      this.booksCollection = JsonSerializer.Deserialize<List<Book>>(dataJson,
-      new JsonSerializerOptions() { PropertyNameCaseInsensitive = true }); // El json es string, Deserializarlo a JSON
-      // this.booksCollection.ForEach(b => Console.WriteLine(b.Title));
+      using (StreamReader reader = new StreamReader(FILE_PATH))
+      {
+        string dataJson = reader.ReadToEnd();
+        var options = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };
+        List<Book>? books = JsonSerializer.Deserialize<List<Book>>(dataJson, options); // El json es string, Deserializarlo a JSON
+        if (books != null && books.Any())
+          this._booksCollection = books;
 
-      /*
-      NON-NULLEABLE
-      JsonSerializer.Deserialize<List<Book>>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!
-      NULLEABLE
-      JsonSerializer.Deserialize<List<Book>>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? Enumerable.Empty<Book>().ToList();
-X      */
+        /*
+        NON-NULLEABLE
+        JsonSerializer.Deserialize<List<Book>>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!
+        NULLEABLE
+        JsonSerializer.Deserialize<List<Book>>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? Enumerable.Empty<Book>().ToList();
+  X      */
+      }
     }
+
   }
 
-  public IEnumerable<Book> AllCollection()
-  {
-    return booksCollection;
-  }
+  // Obtiene todos los libros
+  public IEnumerable<Book> getAllBooks() => this._booksCollection;
 
+  // Imprime una coleccion de libros
   public void printValues(IEnumerable<Book>? books = null)
   {
-    if(books == null)
+    if (books == null)
       books = new List<Book>();
-    
+
     Console.WriteLine("{0,-60} {1, 15} {2, 15}", "Titulo", "N. Paginas", "Fecha de publicacion");
-    foreach (var book in books)
-    {
-      Console.WriteLine("{0,-60} {1, 15} {2, 15}", book.Title, book.PageCount, book.PublishedDate.ToShortDateString());
-    }
+    books.ToList().ForEach(book => Console.WriteLine("{0,-60} {1, 15} {2, 15}", book.Title, book.PageCount, book.PublishedDate.ToShortDateString()));
+    // foreach (var book in books)
+    // {
+    //   Console.WriteLine("{0,-60} {1, 15} {2, 15}", book.Title, book.PageCount, book.PublishedDate.ToShortDateString());
+    // }
   }
 }
