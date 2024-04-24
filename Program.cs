@@ -44,14 +44,43 @@ var books = linqData.getAllBooks();
 // linqData.printValues(books.Where(b => b.Categories.Contains("Python"))); // string[] -> include/where
 
 // * ORDER BY - ORDER BY DESCENDING
-var javaBooks = books.Where(b => b.Categories.Contains("Java"));
-linqData.printValues(javaBooks.OrderBy(b => b.Title)); // Order by ASC Title (string)
-linqData.printValues(javaBooks.OrderByDescending(b => b.PageCount)); // Order by DESC PageCount (int)
+// var javaBooks = books.Where(b => b.Categories.Contains("Java"));
+// linqData.printValues(javaBooks.OrderBy(b => b.Title)); // Order by ASC Title (string)
+// linqData.printValues(javaBooks.OrderByDescending(b => b.PageCount)); // Order by DESC PageCount (int)
 
-// Order by -> DESC PageCount (int) -> ASC Title (string)
-linqData.printValues(javaBooks.OrderByDescending(b => b.PageCount).ThenBy(b => b.Title)); 
+// // Order by -> DESC PageCount (int) -> ASC Title (string)
+// linqData.printValues(javaBooks.OrderByDescending(b => b.PageCount).ThenBy(b => b.Title)); 
+// linqData.printValues(
+//   from jb in javaBooks
+//   orderby jb.PageCount descending, jb.PageCount ascending
+//   select jb
+// );
+
+// * TAKE
 linqData.printValues(
-  from jb in javaBooks
-  orderby jb.PageCount descending, jb.PageCount ascending
-  select jb
+  books
+  .Where(b => b.Categories.Contains("Java"))
+  .OrderByDescending(b => b.PageCount)
+  .Take(3)
+);
+
+linqData.printValues(
+  books
+  .Where(b => b.Categories.Contains("Java"))
+  .OrderByDescending(b => b.PageCount)
+  .TakeLast(3)
+);
+
+linqData.printValues(
+  books
+  .Where(b => b.Categories.Contains("Java"))
+  .OrderByDescending(b => b.PageCount)
+  .TakeWhile(b => b.PageCount >= 550)
+  );
+
+linqData.printValues(
+  from b in books
+  where b.Categories.Contains("Java") && b.PageCount >= 550
+  orderby b.PageCount descending
+  select b
 );
