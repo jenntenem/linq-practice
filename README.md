@@ -11,3 +11,9 @@ dotnet new console -o name-project
 // Ejecutar el proyecto
 dotnet run
 ```
+
+## Importación implícita de namespaces
+En el `*.csproj` habilitar o desactivar la importación implícita de directivas using globales.
+```
+<ImplicitUsings>enable</ImplicitUsings>
+```
