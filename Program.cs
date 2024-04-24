@@ -40,5 +40,18 @@ var books = linqData.getAllBooks();
 // Console.WriteLine($"Existe un libro publicado en 2005: {_anyBook2005}");
 
 // * CONTAINS
-linqData.printValues(books.Where(b => b.Title.Contains("Python"))); // string -> ike
-linqData.printValues(books.Where(b => b.Categories.Contains("Python"))); // string[] -> include/where
+// linqData.printValues(books.Where(b => b.Title.Contains("Python"))); // string -> ike
+// linqData.printValues(books.Where(b => b.Categories.Contains("Python"))); // string[] -> include/where
+
+// * ORDER BY - ORDER BY DESCENDING
+var javaBooks = books.Where(b => b.Categories.Contains("Java"));
+linqData.printValues(javaBooks.OrderBy(b => b.Title)); // Order by ASC Title (string)
+linqData.printValues(javaBooks.OrderByDescending(b => b.PageCount)); // Order by DESC PageCount (int)
+
+// Order by -> DESC PageCount (int) -> ASC Title (string)
+linqData.printValues(javaBooks.OrderByDescending(b => b.PageCount).ThenBy(b => b.Title)); 
+linqData.printValues(
+  from jb in javaBooks
+  orderby jb.PageCount descending, jb.PageCount ascending
+  select jb
+);
