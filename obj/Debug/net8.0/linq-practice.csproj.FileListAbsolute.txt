@@ -1,0 +1,14 @@
+C:\Users\Generico01\Documents\Projects\linq-practice\bin\Debug\net8.0\linq-practice.exe
+C:\Users\Generico01\Documents\Projects\linq-practice\bin\Debug\net8.0\linq-practice.deps.json
+C:\Users\Generico01\Documents\Projects\linq-practice\bin\Debug\net8.0\linq-practice.runtimeconfig.json
+C:\Users\Generico01\Documents\Projects\linq-practice\bin\Debug\net8.0\linq-practice.dll
+C:\Users\Generico01\Documents\Projects\linq-practice\bin\Debug\net8.0\linq-practice.pdb
+C:\Users\Generico01\Documents\Projects\linq-practice\obj\Debug\net8.0\linq-practice.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Generico01\Documents\Projects\linq-practice\obj\Debug\net8.0\linq-practice.AssemblyInfoInputs.cache
+C:\Users\Generico01\Documents\Projects\linq-practice\obj\Debug\net8.0\linq-practice.AssemblyInfo.cs
+C:\Users\Generico01\Documents\Projects\linq-practice\obj\Debug\net8.0\linq-practice.csproj.CoreCompileInputs.cache
+C:\Users\Generico01\Documents\Projects\linq-practice\obj\Debug\net8.0\linq-practice.dll
+C:\Users\Generico01\Documents\Projects\linq-practice\obj\Debug\net8.0\refint\linq-practice.dll
+C:\Users\Generico01\Documents\Projects\linq-practice\obj\Debug\net8.0\linq-practice.pdb
+C:\Users\Generico01\Documents\Projects\linq-practice\obj\Debug\net8.0\linq-practice.genruntimeconfig.cache
+C:\Users\Generico01\Documents\Projects\linq-practice\obj\Debug\net8.0\ref\linq-practice.dll
