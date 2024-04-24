@@ -40,4 +40,16 @@ X      */
   {
     return booksCollection;
   }
+
+  public void printValues(IEnumerable<Book>? books = null)
+  {
+    if(books == null)
+      books = new List<Book>();
+    
+    Console.WriteLine("{0,-60} {1, 15} {2, 15}", "Titulo", "N. Paginas", "Fecha de publicacion");
+    foreach (var book in books)
+    {
+      Console.WriteLine("{0,-60} {1, 15} {2, 15}", book.Title, book.PageCount, book.PublishedDate.ToShortDateString());
+    }
+  }
 }

@@ -1,6 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿var linqData = new LinqQuery();
+var books = linqData.AllCollection();
 
-var linqData = new LinqQuery();
-
-// linqData.
+// Get All Books
+linqData.printValues(books);
