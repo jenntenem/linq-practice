@@ -84,3 +84,12 @@ var books = linqData.getAllBooks();
 //   orderby b.PageCount descending
 //   select b
 // );
+
+// * SKIP
+linqData.printValues(
+  books
+  .Where(b => b.Categories.Contains("Java"))
+  .OrderByDescending(b => b.PageCount)
+  .Take(4)
+  .Skip(2) // omite los 2 primeros registros
+);
