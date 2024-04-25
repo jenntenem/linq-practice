@@ -100,3 +100,9 @@ linqData.printValues(
   .Where(b => b.PageCount > 400)
   .Select(b => new Book { Title = b.Title, PageCount = b.PageCount })
 );
+
+// AGGREGATION FUNCTIONS
+// * COUNT - LONGCOUNT
+Console.WriteLine($"Total libros: {books.Count()}");
+Console.WriteLine($"Total libros: {books.LongCount()}");
+Console.WriteLine($"Libros con más de 400 pags.: {books.LongCount(b => b.PageCount > 400)}");
