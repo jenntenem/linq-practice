@@ -86,10 +86,17 @@ var books = linqData.getAllBooks();
 // );
 
 // * SKIP
+// linqData.printValues(
+//   books
+//   .Where(b => b.Categories.Contains("Java"))
+//   .OrderByDescending(b => b.PageCount)
+//   .Take(4)
+//   .Skip(2) // omite los 2 primeros registros
+// );
+
+// SELECT 
 linqData.printValues(
   books
-  .Where(b => b.Categories.Contains("Java"))
-  .OrderByDescending(b => b.PageCount)
-  .Take(4)
-  .Skip(2) // omite los 2 primeros registros
+  .Where(b => b.PageCount > 400)
+  .Select(b => new Book { Title = b.Title, PageCount = b.PageCount })
 );
