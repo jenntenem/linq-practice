@@ -136,5 +136,18 @@ linqData.printValues(
 
 // * lOOK UP -> dictionary
 // dictionary from books by first letter
-var bookDictionary = books.ToLookup(b => b.Title[0], p => p); // Lookup<char, Book>
-linqData.printValuesDictionary(bookDictionary, 'P');
+// var bookDictionary = books.ToLookup(b => b.Title[0], p => p); // Lookup<char, Book>
+// linqData.printValuesDictionary(bookDictionary, 'P');
+
+// * JOIN - INTERSECT TWO COLLECTIONS
+var result = from booksAfter2005 in books
+             join booksPublishedAfter2005 in books
+             on booksAfter2005.Title equals booksPublishedAfter2005.Title
+             where booksAfter2005.PageCount >= 500 && booksPublishedAfter2005.PublishedDate.Year > 2005
+             select booksAfter2005;
+linqData.printValues(result);
+
+var booksBefore2005 = books.Where(b => b.PublishedDate.Year > 2005);
+var booksMore400pages = books.Where(b => b.PageCount > 500);
+var new_result = booksBefore2005.Join(booksMore400pages, p => p.Title, x => x.Title, (p, x) => p);
+linqData.printValues(new_result);
