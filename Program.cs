@@ -116,10 +116,13 @@ linqData.printValues(
 // Console.WriteLine($"Mayor fecha de publicación: {books.MaxBy(b => b.PublishedDate).ToString()}");
 
 // SUM - AGGREGATE LIKE REDUCE
-Console.WriteLine($"Cantidad de hojas en libros publicados desde el 2000: {books
-  .Where(b => b.PublishedDate.Year > 2000)
-  .Sum(b => b.PageCount)}");
+// Console.WriteLine($"Cantidad de hojas en libros publicados desde el 2000: {books
+//   .Where(b => b.PublishedDate.Year > 2000)
+//   .Sum(b => b.PageCount)}");
 
-Console.WriteLine($"Título de libros después del 2015: {books
-  .Where(b => b.PublishedDate.Year > 2015)
-  .Aggregate("", (acc, val) => acc == string.Empty ? acc = val.Title : acc += " - " + val.Title)}");
+// Console.WriteLine($"Título de libros después del 2015: {books
+//   .Where(b => b.PublishedDate.Year > 2015)
+//   .Aggregate("", (acc, val) => acc == string.Empty ? acc = val.Title : acc += " - " + val.Title)}");
+
+// AVERAGE
+Console.WriteLine($"Promedio de caracteres que tienen los titulos de los libros: {books.Average(b => b.Title.Length)}");
