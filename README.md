@@ -1,6 +1,6 @@
 # Manejo de Datos en C# con LINQ
 
-LINQ, Metalenguaje que es soportado en varios lenguajes, sirve para acceder a los datos de manera declarativa.
+LINQ (Language Integrated Query), Metalenguaje que es soportado en varios lenguajes, sirve para acceder a los datos de manera declarativa.
 
 ```
 // Crear un proyecto de consola
