@@ -59,4 +59,15 @@ class LinqQuery
     //   Console.WriteLine("{0,-60} {1, 15} {2, 15}", book.Title, book.PageCount, book.PublishedDate.ToShortDateString());
     // }
   }
+
+  // Imprime una coleccion de libros agrupados
+  public void printValuesGrouping(IEnumerable<IGrouping<int, Book>> books)
+  {
+    Console.WriteLine("{0,-60} {1, 15} {2, 15}", "Titulo", "N. Paginas", "Fecha de publicacion");
+    books.ToList().ForEach(g =>
+    {
+      Console.WriteLine($"Group {g.Key}:");
+      g.ToList().ForEach(b => Console.WriteLine("{0,-60} {1, 15} {2, 15}", b.Title, b.PageCount, b.PublishedDate.ToShortDateString()));
+    });
+  }
 }

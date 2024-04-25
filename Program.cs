@@ -125,4 +125,11 @@ linqData.printValues(
 //   .Aggregate("", (acc, val) => acc == string.Empty ? acc = val.Title : acc += " - " + val.Title)}");
 
 // AVERAGE
-Console.WriteLine($"Promedio de caracteres que tienen los titulos de los libros: {books.Average(b => b.Title.Length)}");
+// Console.WriteLine($"Promedio de caracteres que tienen los titulos de los libros: {books.Average(b => b.Title.Length)}");
+
+// * AGRUPAMIENTO DE DATOS
+// * GROUP BY
+// Books published since 2000, grouped by year
+var groupedBooks = books.Where(b => b.PublishedDate.Year > 2000)
+                        .GroupBy(b => b.PublishedDate.Year); // IEnumerable<IGrouping<int, Book>>
+linqData.printValuesGrouping(groupedBooks);
