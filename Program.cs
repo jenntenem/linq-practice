@@ -130,6 +130,11 @@ linqData.printValues(
 // * AGRUPAMIENTO DE DATOS
 // * GROUP BY
 // Books published since 2000, grouped by year
-var groupedBooks = books.Where(b => b.PublishedDate.Year > 2000)
-                        .GroupBy(b => b.PublishedDate.Year); // IEnumerable<IGrouping<int, Book>>
-linqData.printValuesGrouping(groupedBooks);
+// var groupedBooks = books.Where(b => b.PublishedDate.Year > 2000)
+//                         .GroupBy(b => b.PublishedDate.Year); // IEnumerable<IGrouping<int, Book>>
+// linqData.printValuesGrouping(groupedBooks);
+
+// * lOOK UP -> dictionary
+// dictionary from books by first letter
+var bookDictionary = books.ToLookup(b => b.Title[0], p => p); // Lookup<char, Book>
+linqData.printValuesDictionary(bookDictionary, 'P');

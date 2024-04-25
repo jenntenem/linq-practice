@@ -70,4 +70,13 @@ class LinqQuery
       g.ToList().ForEach(b => Console.WriteLine("{0,-60} {1, 15} {2, 15}", b.Title, b.PageCount, b.PublishedDate.ToShortDateString()));
     });
   }
+
+    // Imprime un diccionario
+  public void printValuesDictionary(ILookup<char, Book> books, char letter)
+  {
+    Console.WriteLine("{0,-60} {1, 15} {2, 15}", "Titulo", "N. Paginas", "Fecha de publicacion");
+    foreach(var b in books[letter]) {
+      Console.WriteLine("{0,-60} {1, 15} {2, 15}", b.Title, b.PageCount, b.PublishedDate.ToShortDateString());
+    }
+  }
 }
