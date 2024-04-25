@@ -103,6 +103,14 @@ linqData.printValues(
 
 // AGGREGATION FUNCTIONS
 // * COUNT - LONGCOUNT
-Console.WriteLine($"Total libros: {books.Count()}");
-Console.WriteLine($"Total libros: {books.LongCount()}");
-Console.WriteLine($"Libros con más de 400 pags.: {books.LongCount(b => b.PageCount > 400)}");
+// Console.WriteLine($"Total libros: {books.Count()}");
+// Console.WriteLine($"Total libros: {books.LongCount()}");
+// Console.WriteLine($"Libros con más de 400 pags.: {books.LongCount(b => b.PageCount > 400)}");
+
+// * MAX - MIN (RETURN VALUE)
+Console.WriteLine($"Menor fecha de publicación: {books.Min(b => b.PublishedDate)}");
+Console.WriteLine($"Mayor fecha de publicación: {books.Max(b => b.PublishedDate)}");
+
+// MAX BY - MIN BY (RETURN OBJECT)
+Console.WriteLine($"Menor fecha de publicación: {books.MinBy(b => b.PublishedDate).ToString()}");
+Console.WriteLine($"Mayor fecha de publicación: {books.MaxBy(b => b.PublishedDate).ToString()}");
