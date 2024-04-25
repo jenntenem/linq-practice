@@ -1,4 +1,4 @@
-﻿var linqData = new LinqQuery();
+var linqData = new LinqQuery();
 var books = linqData.getAllBooks();
 
 // *Get All Books
@@ -95,11 +95,11 @@ var books = linqData.getAllBooks();
 // );
 
 // SELECT 
-linqData.printValues(
-  books
-  .Where(b => b.PageCount > 400)
-  .Select(b => new Book { Title = b.Title, PageCount = b.PageCount })
-);
+// linqData.printValues(
+//   books
+//   .Where(b => b.PageCount > 400)
+//   .Select(b => new Book { Title = b.Title, PageCount = b.PageCount })
+// );
 
 // AGGREGATION FUNCTIONS
 // * COUNT - LONGCOUNT
